@@ -64,14 +64,16 @@ typedef struct NodHeader {
 	uint8_t  numMaterials;
 	uint8_t  numBones;
 	uint8_t  u1;
-	uint8_t  numMeshes; /* ? */
+	uint8_t  numMeshes;
+	uint32_t unusedBlock0; /* always seems to be 0? */
+	Vector3  bounds[2]; /* mins and maxs */
 
-	char u3[ 32 ]; /* todo */
+	uint32_t blah;
 
 	uint32_t numVertices;
 	char     u5[ 24 ];
 	uint32_t numIndices;
-	char     u6[ 20 ];
+	char     unusedBlock1[ 20 ]; /* always seems to be 0 */
 } NodHeader;
 static_assert( sizeof( NodHeader ) == 92, "Invalid size for NodHeader!" );
 
